@@ -12,7 +12,7 @@ contract Deploy is Ownable {
     uint32 MERKLE_TREE_HEIGHT;
     address HASHER;
 
-    event Create(address, address);
+    event Created(address, address);
 
     constructor(
         address _verifier,
@@ -28,7 +28,7 @@ contract Deploy is Ownable {
         address _newAnonymousTree =
             address(new AnonymousTree(VERIFIER, MERKLE_TREE_HEIGHT, HASHER));
 
-        emit Create(owner(), _newAnonymousTree);
+        emit Created(owner(), _newAnonymousTree);
     }
 
     function updateAnonymousTreeOwnership(address _anonymousTree, address _v)
